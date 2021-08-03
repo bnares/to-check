@@ -1,0 +1,171 @@
+{%extends 'base.html'%}
+
+{%block title%}BILANS{%endblock%}
+
+{% block head %}
+
+    
+    
+  
+
+{% endblock %}
+
+{%block body%}
+
+<main class = "main">
+
+	<section class ="top">
+		<div class = "up-flex">
+			<h1>BILANS</h1>
+		</div>
+	</section>
+	
+	<div class= "lol">
+	
+	<div class ="loggedin">
+	{% if is_logged_in %}
+		<a href = "/BudgetMVC/public/?menu-glowne/main-window">Main Window</a>
+	{% endif %}
+	</div>
+	
+	<div class ="loggedin">
+		<a href = "/BudgetMVC/public/?filter/new">Filter</a>
+		
+	
+	</div>
+		
+	</div>
+	
+	
+	
+	<div class = "balance">
+	
+		<div style ="float:left">
+			<table id = "mainTableIncomes">
+			
+			<tr>
+			
+				<th>INCOMES</th>
+				
+			</tr>
+			
+			<tr>
+			
+				{% if sumIncome %}
+					<td>{{sumIncome}} zł</td>
+				{% else %}
+					<td>0 zł</td>
+				{% endif %}
+			</tr>
+			
+			</table>
+		
+		</div>
+		
+		<div>
+			<table id ="mainTableExpense">
+				<tr>
+				
+					<th>EXPENSES</th>
+				</tr>
+				
+				<tr>
+					{% if sumExpense %}
+						<td>{{ sumExpense }} zł</td>
+					{% else %}
+						<td>0 zł</td>
+					{% endif %}
+				
+				</tr>
+			
+			
+			
+			</table>
+		</div>
+	
+	</div>
+	
+	
+	
+	<div class = "balance">
+	<div style = "float:left">
+	
+		<table id ="balanceIncomes">
+		
+			<tr>
+			
+				<th colspan = 2><center>INCOMES</center></th>
+			
+			</tr>
+			
+			<tr>
+				<th>CATEGORY</th>
+				<th>SUM</th>
+			
+			</tr>
+			
+			<tr>
+				{% if dividedIncome %}
+					{% for key, item in dividedIncome %}
+						
+							<tr>
+							<td>{{ item.NAZWA }}</td>
+							<td>{{item.SUMA }}</td>
+							</tr>
+						
+					{% endfor %}
+				{% else %}
+					
+					<td>0 zł</td>
+				{% endif %}
+				
+				
+				
+				
+			
+			</tr>
+		
+		</table>
+	
+	</div>
+	
+	<div>
+		<table id ="balanceExpense">
+		
+			<tr><th colspan = 2><center>EXPENSES</center></th></tr>
+			<tr>
+				<th>CATEGORY</th>
+				<th>SUM</th>
+			</tr>
+			<tr>
+				{% if dividedExpense %}
+					{% for keys, values in dividedExpense %}
+					<tr>
+						<td>{{values.NAZWA}}</td>
+						<td>{{values.SUMA}}</td>
+					</tr>
+					{% endfor %}
+				{% else %}
+					
+					<td>0 zł</td>
+				{% endif %}
+				
+			
+			</tr>
+		
+		</table>
+	
+	</div>
+	
+	
+
+	</div>
+	
+	
+
+</main>
+	
+	
+	
+
+{%endblock%}

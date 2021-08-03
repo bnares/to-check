@@ -1,0 +1,165 @@
+{%extends 'base.html'%}
+
+{%block title%}INCOME{%endblock%}
+
+{%block body%}
+
+	<h1>WYDATEK</h1>
+	
+	<div class ="loggedin">
+	{% if is_logged_in %}
+		<a href = "/BudgetMVC/public/?menu-glowne/main-window">Main Window</a>
+	{% endif %}
+	</div>
+	
+	
+{{user_id}}	
+
+
+
+											
+				   
+	<div class = "addIncomeForm">
+	
+	<form action = "/BudgetMVC/public/?expense/process-expense-form-data" method = "post">
+					
+							<div class = "row">
+							
+								<div class = "insideForm">
+								
+									<div class = "money">
+										
+										<label><i class = "icon-wallet"></i><input type = "number" step = "0.01", min = "0" name = "kwota" placeholder = "Expense" required/></label>
+									
+									</div>
+								
+								</div>
+								
+								
+								
+								<div class = "insideForm">
+								
+									<div class = "expense">
+									
+										<label>
+										
+											<select name = "expense">
+											
+												<option disabled selected>-SELECT CATEGORY-</option>
+												{% for value in expensesCategories %}
+													
+													<option value = "{{value.name}}">{{value.name}}</option>
+													
+												{% endfor %}
+											
+											</select>
+									
+									</div>
+								
+								
+								</div>
+								
+								
+								
+								
+								
+								<div class = "insideForm">
+								
+									<div class = "payment">
+									
+										<label>
+										
+											<select name = "payment">
+											
+												<option disabled selected>-SELECT PAYMENT-</option>
+												{% for value in paymentMethods %}
+													<option value = "{{value.name}}">{{value.name}}</option>
+												{% endfor %}
+											
+											</select>
+									
+									</div>
+								
+								
+								</div>
+								
+								
+								
+								
+								<div class = "insideForm">
+								
+									<div class = "date">
+								
+										<label for ="data">
+										<input type = "date" name = "data" id = "data" required />
+										</label>
+									</div>
+								
+								</div class = "col-lg-4 offset-lg-5 mt-50">
+								
+									<div class = "category">
+									
+										<label for = "category">
+										
+											
+											
+											
+										
+										</label>
+									
+									</div>
+								
+								<div>
+								
+								
+								
+								</div>
+								
+								
+								
+								<div class = "insideForm">
+								
+									<div class = "comment">
+									
+										<div class = "icon">
+										<label>
+										<i class = "icon-chat"></i>
+										<input type = "text" name = "kom" placeholder= "Comment"/>
+										</label>
+										</div>
+									
+									</div>
+					
+								</div>
+								
+								
+								<div class = "insideForm">
+								
+									<div class = "Confirmation">
+							
+										<div class = "button">
+											<label>
+											
+												<input type = "submit" value = "       Confirm        "/>
+											</label>
+										</div>
+							
+									</div>
+								
+								</div>
+								
+								
+								
+								
+								
+							
+							</div>
+						
+						</form>
+		</div>
+
+	
+	
+	
+
+{%endblock%}

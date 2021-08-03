@@ -1,0 +1,53 @@
+{%extends 'base.html'%}
+
+{%block title%}INCOME{%endblock%}
+
+{%block body%}
+
+<main class = "main">
+
+	<section class ="top">
+
+		<div class = "up-flex">
+			<h1>ADD INCOME CATEGORY</h1>
+		</div>
+	</section>
+	
+	<div class= "lol">
+		<div class ="loggedin">
+		{% if is_logged_in %}
+			<a href = "/BudgetMVC/public/?menu-glowne/main-window">Main Window</a>
+		{% endif %}
+		
+		</div>
+		
+		<div class ="loggedin">
+			<a href = '/BudgetMVC/public/?ustawienia/new'>Tools</a>
+		</div>
+	
+	</div>
+	
+	
+		
+		<section class = "form">
+			<div class = "form-class">
+		<form method = "post" action = "/BudgetMVC/public/?nowa-kategoria/new-payment-validation">
+		
+			<input type = "text" name = "income" id = "income" placeholder = "New Category">
+			<input type = "submit" value = "confirm"/>
+		
+		
+		</form>
+
+		</div>
+		</section>								
+
+</main>
+	
+	
+
+
+	
+	
+
+{%endblock%}

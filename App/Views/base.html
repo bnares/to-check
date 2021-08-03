@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}{% endblock %}</title>
+	
+	
+	
+	
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<meta http-equiv="X-Ua-Compatible" content="IE=edge">
+	
+	<!--<link rel="stylesheet" href="../public/css/bootstrap.min.css">-->
+	
+	<!--<link rel = "stylesheet" href = "../public/css/style.css" />-->
+	
+	<link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700&amp;subset=latin-ext" rel="stylesheet">
+	<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+	
+	
+	
+	<meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/BudgetMVC/public/styles/style.css">
+    
+    
+	
+	
+	<html>
+  <head>
+  
+	{% block head %}
+	
+	{% endblock %}
+    
+  
+  
+
+	
+	
+	
+	
+</head>
+<body>
+    <nav>
+       
+        
+    </nav>
+	
+		
+	
+
+    {% block body %}
+	
+	
+	
+    {% endblock %}
+	
+	
+	<div class = "up-flex">
+		<div class ="errors">
+		{% for information in flash_message %}
+			<div class = "alert-{{ information.type }}">
+				{{information.mes}}
+			</div>
+		{% endfor %}
+		</div>
+		</div>
+	
+	
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+	
+	<script src = "https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.3/jquery.validate.js" ></script>
+	
+	{% block footer %}
+	{% endblock %}
+	
+</body>
+</html>

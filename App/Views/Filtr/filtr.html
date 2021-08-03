@@ -1,0 +1,56 @@
+{%extends 'base.html'%}
+
+{%block title%}BILANS{%endblock%}
+
+{%block body%}
+
+<main class = "main">
+
+	<section class ="top">
+		<div class = "up-flex">
+			<h1>FILTER</h1>
+		</div>
+	</section>
+	
+	
+	<div class= "lol">
+	
+	<div class ="loggedin">
+	{% if is_logged_in %}
+		<a href = "/BudgetMVC/public/?menu-glowne/main-window">Main Window</a>
+	{% endif %}
+	</div>
+	</div>
+	
+	<section class = "form">
+		<div class = "form-class">
+	
+	<form action = "/BudgetMVC/public/?filter/display-filtered-income" method = "post">
+		
+		
+			
+			
+			<label>First Date<input type = "date" name = "firstDate" id ="firstDate" placeholder="Type First Date" /></label>
+			
+			
+			<label>Second Date<input type = "date" name = "secondDate" id = "secondDate" /></label>
+		
+		
+		
+		<input type = "submit" value ="Confirm"/>
+	</form>
+	</div>
+	</section>
+	
+	<br><br>
+	
+	
+			
+		
+	
+	
+
+	
+	
+
+{%endblock%}

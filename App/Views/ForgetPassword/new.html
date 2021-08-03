@@ -1,0 +1,44 @@
+{%extends 'base.html' %}
+{% block title %}Forget Password form{%endblock%}
+
+{% block body %}
+
+
+<main class = "main">
+
+<section class ="top">
+
+<div class = "up-flex">
+<h1>Forgotten Password Form</h1>
+</div>
+
+</section>
+
+
+<section class = "form">
+
+	<div class = "form-class">
+
+		<form method = "post" action = "/BudgetMVC/public/?forget-password/newPassword">
+
+		<div>
+		<label>
+			<input type = "email" placeholder = " type here email" name = "email" id = "email" value = "{{email}}" />
+		</label>
+
+		</div>
+
+
+		<br>
+
+		<input type = "submit" value="Confirm">
+
+		</form>
+
+	</div>
+
+</section>
+
+</main>
+
+{%endblock%}

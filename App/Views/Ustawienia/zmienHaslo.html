@@ -1,0 +1,74 @@
+{%extends 'base.html'%}
+
+{%block title%}INCOME{%endblock%}
+
+{%block body%}
+
+<main class = "main">
+
+<section class ="top">
+	<h1>CHANGE PASSWORD</h1>
+</section>
+	
+	<div class= "lol">
+		<div class ="loggedin">
+		{% if is_logged_in %}
+			<a href = "/BudgetMVC/public/?menu-glowne/main-window">Main Window</a>
+		{% endif %}
+		
+		</div>
+		
+		<div class ="loggedin">
+			<a href = '/BudgetMVC/public/?ustawienia/new'>Tools</a>
+		</div>
+	
+	</div>
+	
+	
+		<br><br>
+		
+		
+		<div class = "addIncomeForm">
+		<form method ="post" action = '/BudgetMVC/public/?ustawienia/precess-form-data'>
+		
+			<div class = "insideForm">
+			<input type = "password" name = 'oldPass' id = 'oldPass' placeholder = "Old Password"/>
+			<br>
+			</div>
+			
+			<div class = "insideForm">
+			<input type ='password' name = 'newPass' id = 'newPass' placeholder = 'New Password'/>
+			<br>
+			</div>
+			
+			<div class = "insideForm">
+			<input type = 'password' name = 'confirmPass' id = 'confirmPass' placeholder = 'Confirm Password'/>
+			<br>
+			</br>
+			</div>
+			
+			
+			<div class = "insideForm">
+			<div  class = "button-settings">
+			
+			<input type = "submit" value = "Confirm"/>
+			
+			</div>
+			</div>
+		
+		<form>
+		
+		</div>
+	
+
+											
+
+
+	
+</main>
+
+
+	
+	
+
+{%endblock%}

@@ -1,0 +1,77 @@
+{%extends 'base.html'%}
+
+{%block title%}Log in user window{%endblock%}
+
+{%block body%}
+
+	<main class = "main">
+
+	<section class = "top">
+	
+		<div class = "up-flex">
+		
+			<h1>Log in</h1>
+		
+			<div class = "errors">
+			
+			
+				{% if user.success is not empty  %}
+			
+				
+				
+				{% for mes in user.success %}
+						{{mes}}
+					{% endfor %}
+				
+				
+				{% endif %}
+			</div>
+		
+		
+		</div>
+	
+	
+	</section>
+	
+	
+	<section class = "form">
+
+		<div class = "form-class">
+			<form method = "post" action = "/BudgetMVC/public/?login/create">
+
+				<div>
+
+					<label for = "inputEmail"></label>
+					<input type = "email" id = "inputEmail" name = "email" placeholder = "Email" autofocus value = "{{email}}" required />
+					<!-- wartosc value = {{email}} poniewaz w pliku Login.php w metodzie createAction zapamietujemy wartosc emaila ktora byla wpisana przed blednymi danymi do logowania dzieki temu mamy zapisny email wpisujac ponownie dane bo nieudanej probie logowania-->
+
+				</div>
+
+				<div>
+
+					<label for = "inputPassword"></label>
+					<input type = "password" name = "password" id = "inputPassword" placeholder = "Password" required />
+
+				</div>
+				
+				<div class = "label">
+					<label>
+						<input id = "myid" type ="checkbox" name = "remember_me"  {% if remember_me %} checked= "checked" {% endif %}/>Remember me
+					</label>
+				</div>
+				
+				
+				
+				<input type = "submit" value = "Log in"/>
+
+				<input type ="button" onclick = "window.location.href='/BudgetMVC/public/?forget-password/new';" value = "Forget password"/>
+			</form>
+		</div>
+	
+	</section>
+	
+	</main>
+	
+	
+
+{%endblock%}

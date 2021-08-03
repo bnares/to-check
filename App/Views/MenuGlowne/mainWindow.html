@@ -1,0 +1,292 @@
+{% extends 'base.html' %}
+
+
+
+{% block head %}
+
+
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+      google.charts.load("current", {packages:["corechart"]});
+      google.charts.setOnLoadCallback(drawChart);
+      function drawChart() {
+	  
+        var data = google.visualization.arrayToDataTable([
+          ['Przeplyw', 'Ilosc'],
+          ['Income',     {{piechar.income}}],
+          ['Expense',     {{piechar.expense}}]
+          
+        ]);
+
+        var options = {
+          title: 'Comparison of Costs and Incomes',
+          is3D: true,
+		  
+        };
+
+        var chart = new google.visualization.PieChart(document.getElementById('piechart_3d'));
+        chart.draw(data, options);
+      }
+    </script>
+	
+
+	
+		<script type = "text/javascript" src = "https://www.gstatic.com/charts/loader.js"></script>
+      <script type = "text/javascript">
+         google.charts.load('current', {packages: ['corechart']});     
+      </script>
+	  
+	  
+	  
+	  <script language = "JavaScript">
+         function drawChart() {
+            // Define the chart to be drawn.
+            var data = google.visualization.arrayToDataTable([
+               ['Category', '{{user.username}}'],
+               ['Income',  {{NumberAsigned.income}}-1],
+               ['Expense',  {{NumberAsigned.expense}}-1],
+               ['Payment method',  {{NumberAsigned.payment}}-1],
+               
+            ]);
+
+            var options = {title: 'Number of Options Asigned to User: {{user.username }}'}; 
+
+            // Instantiate and draw the chart.
+            var chart = new google.visualization.BarChart(document.getElementById('container'));
+            chart.draw(data, options);
+         }
+         google.charts.setOnLoadCallback(drawChart);
+      </script>
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	
+	
+	
+
+{% endblock %}
+
+
+{% block body %}
+	
+		
+			<header>
+			
+				<div clsss="container-links">
+			
+					<nav class = "navbar">  
+				
+						
+						
+							<ul class = "navbar-nav">
+							
+								<li class = "nav-item active">
+								
+									<a class = "nav-link" href ="/BudgetMVC/public/?menu-glowne/main-window">Start</a>
+								
+								</li>
+								
+								
+								<li class = "nav-item">
+								
+									<a class = "nav-link" href ="/BudgetMVC/public/?income/new">Add Income</a>
+								
+								</li>
+								
+								<li class = "nav-item">
+								
+									<a class = "nav-link" href ="/BudgetMVC/public/?expense/new">Add Expense</a>
+								
+								</li>
+								
+								<li class = "nav-item">
+								
+									<a class = "nav-link" href ="/BudgetMVC/public/?bilans/new">Balance</a>
+								
+								</li>
+								
+								
+								<li class = "nav-item">
+								
+									<a class = "nav-link" href ="/BudgetMVC/public/?ustawienia/new">Settings</a>
+								
+								</li>
+								
+								
+								<li class = "nav-item">
+									
+									
+										<a class = "nav-link" href ="/BudgetMVC/public/?login/destroy"> 
+											Wyloguj
+										</a>
+									
+								
+								</li>
+								
+							
+							</ul>
+						
+				
+						
+					</nav>
+					
+					
+					
+					
+					
+					<div class="header-navigation--mobile">
+						
+
+						
+						
+						
+						
+							<input type="checkbox" id="tab-1" name="tab-group-1" />
+							<label for="tab-1">
+								<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+									<path
+										d="M20.05 11H3.95C3.42533 11 3 11.4253 3 11.95V12.05C3 12.5747 3.42533 13 3.95 13H20.05C20.5747 13 21 12.5747 21 12.05V11.95C21 11.4253 20.5747 11 20.05 11Z"
+										fill="#10235B" />
+									<path
+										d="M20.05 16H3.95C3.42533 16 3 16.4253 3 16.95V17.05C3 17.5747 3.42533 18 3.95 18H20.05C20.5747 18 21 17.5747 21 17.05V16.95C21 16.4253 20.5747 16 20.05 16Z"
+										fill="#10235B" />
+									<path
+										d="M20.05 6H3.95C3.42533 6 3 6.42533 3 6.95V7.05C3 7.57467 3.42533 8 3.95 8H20.05C20.5747 8 21 7.57467 21 7.05V6.95C21 6.42533 20.5747 6 20.05 6Z"
+										fill="#10235B" />
+								</svg>
+							</label>
+						
+						
+						
+						
+						<div class="navigation-mobile-content">
+							<nav>
+								<ul>
+									<li><a href="/BudgetMVC/public/?menu-glowne/main-window">Start</a></li>
+									<li><a href="/BudgetMVC/public/?income/new">Income</a></li>
+									<li><a href="/BudgetMVC/public/?expense/new">Expens</a></li>
+									<li><a href="/BudgetMVC/public/?bilans/new">Balance</a></li>
+									<li><a href="/BudgetMVC/public/?ustawienia/new">Settings</a></li>
+								</ul>
+							</nav>
+							
+							<a class="btn btn--white btn--small" href ="/BudgetMVC/public/?login/destroy"> 
+								Wyloguj
+							</a>
+							
+							
+						</div>
+						
+						
+					</div>
+				
+				</div>
+			
+			</header>
+			
+			<div class = "welcome">
+			
+				<br>
+				{% if is_logged_in %}
+					WELCOM: {{ user.username }}
+					
+					<!--<a href = "http://{{server}}/BudgetMVC/public/?logout">Log out</a>-->
+					
+				{% else %}
+					{{ MENU }}
+				{% endif %}
+				
+			</div>
+			
+			<br>
+			
+			<div class = "charts">
+			
+				
+				<div id="piechart_3d" ></div>
+				
+				
+				<div id = "container"></div>
+				
+				
+  
+			
+			</div>
+			
+			<br><br>
+			
+			{% if topused %}
+			<div class = "charts">
+				<table id = "topexpense">
+					<tr>
+						<th colspan = 2><center>TOP USED EXPENSE CATEGORIES</center></th>
+					</tr>
+					
+					<tr>
+						<th>CATEGORIES</th>
+						<th>AMOUNT</th>
+					</tr>
+					
+					
+					
+						{% for var in topused %}
+						<tr>
+							<td><center>{{var.nazwa}}</center></td>
+							<td><center>{{var.liczba}}</center></td>
+						</tr>
+						{% endfor %}
+					
+				
+				</table>
+				
+				
+				
+				<table id = "topincome">
+					<tr>
+						<th colspan = 2><center>TOP USED INCOME CATEGORIES</center></th>
+					</tr>
+					
+					<tr>
+						<th>CATEGORIES</th>
+						<th>AMOUNT</th>
+					</tr>
+					
+					
+					
+						{% for var in incomeTop %}
+						<tr>
+							<td><center>{{var.nazwa}}</center></td>
+							<td><center>{{var.liczba}}</center></td>
+						</tr>
+						{% endfor %}
+					
+				
+				</table>
+			
+			
+			
+			</div>
+			{% endif %}
+			
+			
+			<br>
+			
+			
+			
+{% endblock %}		
+			
+	
+
+{% block footer %}
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+	
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+	
+	<script src="js/bootstrap.min.js"></script>
+
+{% endblock %}

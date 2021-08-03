@@ -1,0 +1,76 @@
+{%extends 'base.html'%}
+
+{%block title%}INCOME{%endblock%}
+
+{%block body%}
+
+	<h1>SETTINGS</h1>
+	
+	<div class ="loggedin">
+	{% if is_logged_in %}
+		<a href = "/BudgetMVC/public/?menu-glowne/main-window">Main Window</a>
+	{% endif %}
+	</div>
+	
+	
+		
+		
+	
+		<div class = "mainSettings">
+		<label>
+		<a id = "link" href = "/BudgetMVC/public/?ustawienia/change-password-form">
+		<div class = "settings">
+		
+			Change Password
+		
+		</div>
+		
+		</a>
+		</label>
+		
+		
+		
+		<label>
+		<a id = "link" href = "/BudgetMVC/public/?nowa-kategoria/income-category">
+		
+		<div class = "settings">
+			New Income Category
+		</div>
+		</a>
+		</label>
+		
+		<label>
+		<a id = "link" href = "/BudgetMVC/public/?nowa-kategoria/expense-category">
+		
+		<div class = "settings">
+		New Expense Category
+		</div>
+		</a>
+		
+		</label>
+		
+		
+		<label>
+		<a id = "link" href = "/BudgetMVC/public/?nowa-kategoria/payment-category">
+		
+		<div class = "settings">
+		New Payment Category
+		</div>
+		</a>
+		
+		</label>
+		
+		</div>
+	
+
+											
+
+
+	
+	
+
+
+	
+	
+
+{%endblock%}

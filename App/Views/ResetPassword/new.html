@@ -1,0 +1,38 @@
+{%extends 'base.html' %}
+{% block title %}Reset password form{%endblock%}
+
+{% block body %}
+
+<h1>Change Password here</h1>
+
+
+<form  method = "post" action = "/BudgetMVC/public/?change-password/reset-password">
+	<div>
+
+		<label>
+			Password:<input type = "password" placeholder = "New Password" name = "password" id = "password" require />
+		
+		</label>
+
+	</div>
+
+
+	<div>
+
+		<label>
+			Confirm:<input type = "password" placeholder = "Confirm Password" name = "passwordConfirm" id = "passwordConfirm" require />
+		
+		</label>
+
+	</div>
+
+	<div>
+
+	<input type = "submit" value = "Confirm" />
+
+	</div>
+
+</form>
+
+
+{% endblock %}

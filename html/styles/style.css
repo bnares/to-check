@@ -1,0 +1,184 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,500;0,700;1,400&display=swap');
+
+:root {
+	--primary-color:#1C4094;
+	--light-color: #E6ECFA;
+	--dark-color: #1023i5b;
+}
+
+*{
+	box-sizing: border-box;
+	padding:0;
+	margin:0;
+}
+
+
+p, a, div{
+	font-size:15px;
+}
+
+h1, h2, h3{
+	font-weight:700;
+	line-height: 1.2;
+	margin: 10px 0;
+	color: var(--primary-color);
+}
+
+
+body{
+	font-family:"DM Sans", sans-serif;
+	color: var(--dark-color);
+	line-height:1.6;
+	background-image: linear-gradient(to right, #E6ECF9, #99A2B6);
+}
+
+
+.grid{
+	
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	height:100%;
+	justify-content: center;
+	align-items:center;
+}
+
+.container{
+	box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.2);
+	background-color: #d9deea;
+	width: 60%;
+	margin-top:30vh;
+	margin-left:auto;
+	margin-right:auto;
+	border: 5px solid var(--light-color);
+	
+}
+
+.container img{
+	width: 100%;
+	
+	
+}
+
+
+.container-links{
+	
+	display:flex;
+	align-item:center;
+	justify-content:space-around;
+	
+}
+
+
+
+.btn{
+	
+	border-radius: 10px;
+	border: 2px solid transparent;
+	background-color: #fff;
+	padding:5px;
+	min-width:150px;
+	font-size:20px;
+	pointer:cursor;
+	margin: 3px 0;
+	transition: background-color 0.2 ease-in-out, border 0.2 ease-in-out, color 0.2 ease-in-out;
+	text-align:center;
+}
+
+
+.btn:hover{
+	
+	border-color: var(--primary-color);
+	background: #fff;
+	color: var(--primary-color);
+}
+
+
+.btn-white{
+	
+	background-color: var(--primary-color);
+	color: #fff;
+}
+
+.btn-outline{
+	
+	background-color: #fff;
+	color: var(--primary-color);
+}
+
+
+.btn-outline:hover{
+	background-color: var(--primary-color);
+	color: #fff;
+}
+
+
+
+
+a{
+	
+	text-decoration: none;
+	color: var(--dark-color);
+}
+
+
+
+.login p {
+	text-align:center;
+	margin-left:5px;
+	margin-right:5px;
+}
+
+
+
+
+@media(max-width:1050px){
+	
+	.container-links{
+	
+	display:flex;
+	flex-direction:column;
+	align-item:center;
+	justify-content:space-around;
+	
+	
+}
+	.btn-white, .btn-outline{
+		align-self:center;
+	}
+	
+	
+
+
+	.container img{
+	width: 100%;
+	height: 100%;
+	
+}
+
+	.btn{
+		
+		max-width:200px;
+	}
+
+	
+}
+
+@media(max-width:750px){
+	
+	.grid{
+		
+		grid-template-columns: 1fr;
+	}
+}
+
+@media(max-width:550px){
+	
+	.login p{
+		font-size:13px;
+	}
+	
+	.btn{
+		font-size:15px;
+	}
+}
+

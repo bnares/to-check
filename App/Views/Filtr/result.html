@@ -1,0 +1,102 @@
+{%extends 'base.html'%}
+
+{%block title%}BILANS{%endblock%}
+
+{%block body%}
+
+
+<main class = "main">
+
+
+	<section class ="top">
+		<div class = "up-flex">
+			<h1>FILTER</h1>
+		</div>
+	</section>
+	
+	
+	<div class= "lol">
+	
+	<div class ="loggedin">
+	
+	{% if is_logged_in %}
+		<a href = "/BudgetMVC/public/?menu-glowne/main-window">Main Window</a>
+	{% endif %}
+	</div>
+	
+	</div>
+	
+	
+	
+	<div class = "balance">
+	
+	<div>
+		<table id ="balanceIncomes">
+			<tr><th colspan = 2><center>FILTERED INCOMES</center></th></tr>
+			
+			<tr>
+					<th>KATEGORIA</th>
+					<th>SUMA</th>
+				
+			</tr>
+			
+			{% if filteredDataIncome %}
+				
+				{% for key, value in filteredDataIncome %}  
+					<tr>
+					<td>{{value.NAZWA}}</td>
+					<td>{{value.SUMA}}</td>
+					</tr>
+				{% endfor %}
+			{% else %}
+				<td>0 zł</td>
+			{% endif %}
+		</table>
+		
+		
+	</div>
+	
+	
+	<div>
+	
+		<table id ="balanceExpense">
+		
+			<tr>
+			
+				<th colspan = 2><center>FILTERED EXPENSES</center></th>
+			
+			</tr>
+			
+			<tr>
+			
+			
+				<th>CATEGORY</th>
+				<th>SUM</th>
+			
+			</tr>
+			
+			{% if filteredDataExpense %}
+				{% for key, value in filteredDataExpense %} 
+					<tr>
+						<td>{{value.NAZWA}}</td>
+						<td>{{value.SUMA}}</td>
+					
+					</tr>
+				{% endfor %}
+			{% else %}
+				<td>0 zł</td>
+			{% endif %}
+			
+		
+		</table>
+	
+	</div>
+			
+	</div>	
+	
+</main>	
+
+	
+	
+
+{%endblock%}
